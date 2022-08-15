@@ -1,5 +1,5 @@
 python3 main_pretrain.py \
-    --dataset $1 \
+    --dataset cifar10 \
     --backbone resnet18 \
     --train_data_path ./datasets \
     --val_data_path ./datasets \
@@ -7,12 +7,10 @@ python3 main_pretrain.py \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
-    --optimizer lars \
-    --grad_clip_lars \
-    --eta_lars 0.02 \
+    --optimizer adamw \
     --exclude_bias_n_norm_lars \
     --scheduler warmup_cosine \
-    --lr 0.3 \
+    --lr 0.02 \
     --weight_decay 1e-4 \
     --batch_size 256 \
     --brightness 0.4 \
@@ -31,5 +29,4 @@ python3 main_pretrain.py \
     --method linear_projection \
     --proj_hidden_dim 2048 \
     --proj_output_dim 256 \
-    --scale_loss 0.1 \
     --auto_resume

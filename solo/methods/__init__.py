@@ -17,6 +17,7 @@
 # OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
+from solo.methods.linear_projection import LinearProjection
 from solo.methods.barlow_twins import BarlowTwins
 from solo.methods.base import BaseMethod
 from solo.methods.byol import BYOL
@@ -43,6 +44,7 @@ METHODS = {
     "base": BaseMethod,
     "linear": LinearModel,
     # methods
+    "linear_projection": LinearProjection,
     "barlow_twins": BarlowTwins,
     "byol": BYOL,
     "deepclusterv2": DeepClusterV2,
@@ -63,6 +65,7 @@ METHODS = {
     "wmse": WMSE,
 }
 __all__ = [
+    "LinearProjection",
     "BarlowTwins",
     "BYOL",
     "BaseMethod",
