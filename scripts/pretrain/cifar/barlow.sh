@@ -7,7 +7,7 @@ python3 main_pretrain.py \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
-    --num_workers 4 \
+    --num_workers 2 \
     --optimizer lars \
     --grad_clip_lars \
     --eta_lars 0.02 \
@@ -32,5 +32,5 @@ python3 main_pretrain.py \
     --auto_resume \
     --method barlow_twins \
     --proj_hidden_dim 2048 \
-    --proj_output_dim 256 \
+    --proj_output_dim 128 \
     --scale_loss 0.1

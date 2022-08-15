@@ -1,5 +1,5 @@
 python3 main_pretrain.py \
-    --dataset $1 \
+    --dataset cifar10 \
     --backbone resnet18 \
     --train_data_path ./datasets \
     --val_data_path ./datasets \
@@ -26,13 +26,13 @@ python3 main_pretrain.py \
     --crop_size 32 \
     --num_crops_per_aug 1 1 \
     --name byol-$1 \
-    --project solo-learn \
-    --entity unitn-mhug \
+    --project acc-data-ai \
+    --entity evrimozmermer \
     --wandb \
     --save_checkpoint \
     --auto_resume \
     --method byol \
-    --proj_output_dim 256 \
+    --proj_output_dim 128 \
     --proj_hidden_dim 2048 \
     --pred_hidden_dim 2048 \
     --base_tau_momentum 0.99 \

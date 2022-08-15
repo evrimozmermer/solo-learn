@@ -7,10 +7,12 @@ python3 main_pretrain.py \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
-    --optimizer adamw \
+    --optimizer lars \
+    --grad_clip_lars \
+    --eta_lars 0.02 \
     --exclude_bias_n_norm_lars \
     --scheduler warmup_cosine \
-    --lr 0.02 \
+    --lr 0.3\
     --weight_decay 1e-4 \
     --batch_size 256 \
     --brightness 0.4 \
@@ -28,5 +30,5 @@ python3 main_pretrain.py \
     --save_checkpoint \
     --method linear_projection \
     --proj_hidden_dim 2048 \
-    --proj_output_dim 256 \
+    --proj_output_dim 128 \
     --auto_resume
