@@ -33,8 +33,8 @@ python3 main_pretrain.py \
     --auto_resume \
     --method byol \
     --proj_output_dim 256 \
-    --proj_hidden_dim 4096 \
-    --pred_hidden_dim 4096 \
+    --proj_hidden_dim 2048 \
+    --pred_hidden_dim 2048 \
     --base_tau_momentum 0.99 \
     --final_tau_momentum 1.0 \
     --momentum_classifier

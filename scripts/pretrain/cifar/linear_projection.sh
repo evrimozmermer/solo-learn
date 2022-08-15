@@ -7,7 +7,6 @@ python3 main_pretrain.py \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
-    --num_workers 4 \
     --optimizer lars \
     --grad_clip_lars \
     --eta_lars 0.02 \
@@ -24,13 +23,13 @@ python3 main_pretrain.py \
     --solarization_prob 0.0 0.2 \
     --crop_size 32 \
     --num_crops_per_aug 1 1 \
-    --name barlow-$1 \
-    --project solo-learn \
-    --entity unitn-mhug \
+    --name linear_projection-$1 \
+    --project acc-data-ai \
+    --entity evrimozmermer \
     --wandb \
     --save_checkpoint \
-    --auto_resume \
-    --method barlow_twins \
+    --method linear_projection \
     --proj_hidden_dim 2048 \
     --proj_output_dim 256 \
-    --scale_loss 0.1
+    --scale_loss 0.1 \
+    --auto_resume
