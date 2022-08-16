@@ -22,7 +22,7 @@ def linear_projection_loss_func(
     labels = labels_bin.argmax(dim=0)
 
     # solve with exact solution and append new weights
-    linear.weight = torch.nn.Parameter(torch.matmul(torch.pinverse(l2_norm(z1).detach()), labels_bin).T)
+    linear.weight = torch.nn.Parameter(torch.matmul(torch.pinverse(l2_norm(z1)), labels_bin).T)
 
     # run inference and calculate cross-entropy loss
     z2 = l2_norm(z2)

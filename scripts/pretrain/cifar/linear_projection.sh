@@ -7,12 +7,10 @@ python3 main_pretrain.py \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
-    --optimizer lars \
+    --optimizer adamw \
     --grad_clip_lars \
-    --eta_lars 0.02 \
-    --exclude_bias_n_norm_lars \
     --scheduler warmup_cosine \
-    --lr 0.3\
+    --lr 0.01 \
     --weight_decay 1e-4 \
     --batch_size 256 \
     --brightness 0.4 \
@@ -23,7 +21,7 @@ python3 main_pretrain.py \
     --solarization_prob 0.0 0.2 \
     --crop_size 32 \
     --num_crops_per_aug 1 1 \
-    --name linear_projection-$1 \
+    --name linear_projection_shallow_proj \
     --project acc-data-ai \
     --entity evrimozmermer \
     --wandb \
