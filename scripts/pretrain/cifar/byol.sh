@@ -3,7 +3,7 @@ python3 main_pretrain.py \
     --backbone resnet18 \
     --train_data_path ./datasets \
     --val_data_path ./datasets \
-    --max_epochs 1000 \
+    --max_epochs 1500 \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
@@ -16,7 +16,7 @@ python3 main_pretrain.py \
     --classifier_lr 0.1 \
     --weight_decay 1e-5 \
     --batch_size 256 \
-    --num_workers 4 \
+    --num_workers 1 \
     --brightness 0.4 \
     --contrast 0.4 \
     --saturation 0.2 \

@@ -3,11 +3,11 @@ python3 main_pretrain.py \
     --backbone resnet18 \
     --train_data_path ./datasets \
     --val_data_path ./datasets \
-    --max_epochs 1000 \
+    --max_epochs 1500 \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
-    --num_workers 2 \
+    --num_workers 1 \
     --optimizer lars \
     --grad_clip_lars \
     --eta_lars 0.02 \
@@ -30,6 +30,7 @@ python3 main_pretrain.py \
     --wandb \
     --save_checkpoint \
     --auto_resume \
+    --auto_resumer_max_hours 240 \
     --method barlow_twins \
     --proj_hidden_dim 2048 \
     --proj_output_dim 128 \
