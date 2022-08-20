@@ -7,7 +7,7 @@ python3 main_pretrain.py \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
-    --num_workers 1 \
+    --num_workers 2 \
     --optimizer lars \
     --grad_clip_lars \
     --eta_lars 0.02 \
@@ -15,7 +15,7 @@ python3 main_pretrain.py \
     --scheduler warmup_cosine \
     --lr 0.3 \
     --weight_decay 1e-4 \
-    --batch_size 256 \
+    --batch_size 128 \
     --brightness 0.4 \
     --contrast 0.4 \
     --saturation 0.2 \
@@ -24,7 +24,8 @@ python3 main_pretrain.py \
     --solarization_prob 0.0 0.2 \
     --crop_size 32 \
     --num_crops_per_aug 1 1 \
-    --name barlow-$1 \
+    --knn_eval \
+    --name barlow_1 \
     --project acc-data-ai \
     --entity evrimozmermer \
     --wandb \
@@ -32,6 +33,6 @@ python3 main_pretrain.py \
     --auto_resume \
     --auto_resumer_max_hours 240 \
     --method barlow_twins \
-    --proj_hidden_dim 2048 \
-    --proj_output_dim 128 \
+    --proj_hidden_dim 512 \
+    --proj_output_dim 64 \
     --scale_loss 0.1

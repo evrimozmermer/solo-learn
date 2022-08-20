@@ -39,7 +39,7 @@ class LinearProjection(BaseMethod):
 
         super().__init__(**kwargs)
 
-        
+        """
         # projector
         self.projector = nn.Sequential(
             nn.Linear(self.features_dim, proj_hidden_dim),
@@ -51,9 +51,11 @@ class LinearProjection(BaseMethod):
         """
         # projector
         self.projector = nn.Sequential(
+            nn.BatchNorm1d(self.features_dim),
+            nn.ReLU(),
             nn.Linear(self.features_dim, proj_output_dim)
         )
-        """
+        
 
     @staticmethod
     def add_model_specific_args(parent_parser: argparse.ArgumentParser) -> argparse.ArgumentParser:

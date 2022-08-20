@@ -5,15 +5,14 @@ python3 main_pretrain.py \
     --val_data_path ./datasets \
     --max_epochs 1500 \
     --devices 0 \
-    --num_workers 1 \
+    --num_workers 4 \
     --accelerator gpu \
     --precision 16 \
     --optimizer adamw \
-    --grad_clip_lars \
     --scheduler warmup_cosine \
-    --lr 0.001 \
+    --lr 0.01 \
     --weight_decay 1e-4 \
-    --batch_size 1024 \
+    --batch_size 128 \
     --brightness 0.4 \
     --contrast 0.4 \
     --saturation 0.2 \
@@ -22,13 +21,14 @@ python3 main_pretrain.py \
     --solarization_prob 0.0 0.2 \
     --crop_size 32 \
     --num_crops_per_aug 1 1 \
+    --knn_eval \
     --name linear_projection_shallow_proj_1 \
     --project acc-data-ai \
     --entity evrimozmermer \
     --wandb \
     --save_checkpoint \
     --method linear_projection \
-    --proj_hidden_dim 1024 \
-    --proj_output_dim 128 \
+    --proj_hidden_dim 512 \
+    --proj_output_dim 64 \
     --auto_resume \
     --auto_resumer_max_hours 120
