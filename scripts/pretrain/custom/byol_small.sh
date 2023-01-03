@@ -1,16 +1,20 @@
 python main_pretrain.py \
-    --dataset cifar10 \
+    --dataset custom \
     --backbone swin_tiny \
-    --train_data_path ./datasets \
-    --val_data_path ./datasets \
+    --train_data_path ./datasets/universal_image_embeddings/train \
+    --val_data_path ./datasets/universal_image_embeddings/eval \
     --max_epochs 1000 \
     --devices 0 \
     --num_workers 0 \
     --accelerator gpu \
     --precision 16 \
-    --optimizer adamw \
+    --optimizer lars \
+    --eta_lars 0.001 \
+    --exclude_bias_n_norm_lars \
     --scheduler warmup_cosine \
-    --lr 0.01 \
+    --lr 0.45 \
+    --accumulate_grad_batches 16 \
+    --classifier_lr 0.2 \
     --weight_decay 1e-4 \
     --batch_size 32 \
     --brightness 0.2 \
@@ -19,16 +23,19 @@ python main_pretrain.py \
     --hue 0.1 \
     --gaussian_prob 0.0 0.2 \
     --solarization_prob 0.0 0.0 \
-    --crop_size 32 \
+    --crop_size 224 \
     --num_crops_per_aug 1 1 \
     --knn_eval \
-    --name linear_projection_cifar10 \
+    --name by_uie++ \
     --project ssl-lp-whitepaper \
     --entity evrimozmermer \
     --wandb \
     --save_checkpoint \
-    --method linear_projection \
-    --proj_hidden_dim 2048 \
+    --method byol \
     --proj_output_dim 16 \
+    --proj_hidden_dim 512 \
+    --pred_hidden_dim 512 \
+    --base_tau_momentum 0.99 \
+    --final_tau_momentum 1.0
     --auto_resume \
     --auto_resumer_max_hours 120

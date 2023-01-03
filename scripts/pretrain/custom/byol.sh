@@ -1,47 +1,41 @@
-# Train without labels.
-# To train with labels, simply remove --no_labels
-# --val_data_path is optional and will expect a directory with subfolder (classes)
-# --data_format supports "image_folder" and "dali"
-python3 main_pretrain.py \
+python main_pretrain.py \
     --dataset custom \
-    --backbone resnet18 \
-    --train_data_path $1_TO_TRAIN_DIR \
-    --no_labels \
-    --max_epochs 400 \
-    --devices 0,1 \
+    --backbone swin_tiny \
+    --train_data_path ./datasets/universal_image_embeddings/train \
+    --val_data_path ./datasets/universal_image_embeddings/eval \
+    --max_epochs 1000 \
+    --devices 0 \
+    --num_workers 0 \
     --accelerator gpu \
-    --strategy ddp \
-    --sync_batchnorm \
     --precision 16 \
     --optimizer lars \
-    --grad_clip_lars \
-    --eta_lars 0.02 \
+    --eta_lars 0.001 \
     --exclude_bias_n_norm_lars \
     --scheduler warmup_cosine \
-    --lr 1.0 \
-    --classifier_lr 0.1 \
-    --weight_decay 1e-5 \
-    --batch_size 128 \
-    --num_workers 4 \
-    --brightness 0.4 \
-    --contrast 0.4 \
+    --lr 0.45 \
+    --accumulate_grad_batches 16 \
+    --classifier_lr 0.2 \
+    --weight_decay 1e-4 \
+    --batch_size 32 \
+    --brightness 0.2 \
+    --contrast 0.2 \
     --saturation 0.2 \
     --hue 0.1 \
-    --color_jitter_prob 0.8 \
-    --gray_scale_prob 0.2 \
-    --horizontal_flip_prob 0.5 \
-    --gaussian_prob 1.0 0.1 \
-    --solarization_prob 0.0 0.2 \
+    --gaussian_prob 0.0 0.2 \
+    --solarization_prob 0.0 0.0 \
+    --crop_size 224 \
     --num_crops_per_aug 1 1 \
-    --name byol-400ep-custom \
-    --entity unitn-mhug \
-    --project solo-learn \
+    --knn_eval \
+    --name by_uie++ \
+    --project ssl-lp-whitepaper \
+    --entity evrimozmermer \
     --wandb \
     --save_checkpoint \
-    --auto_resume \
     --method byol \
-    --output_dim 256 \
-    --proj_hidden_dim 4096 \
-    --pred_hidden_dim 8192 \
+    --proj_output_dim 16 \
+    --proj_hidden_dim 2048 \
+    --pred_hidden_dim 2048 \
     --base_tau_momentum 0.99 \
     --final_tau_momentum 1.0
+    --auto_resume \
+    --auto_resumer_max_hours 120

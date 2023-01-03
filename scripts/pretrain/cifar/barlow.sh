@@ -1,38 +1,36 @@
-python3 main_pretrain.py \
+python main_pretrain.py \
     --dataset cifar10 \
-    --backbone resnet18 \
+    --backbone swin_tiny \
     --train_data_path ./datasets \
     --val_data_path ./datasets \
-    --max_epochs 1500 \
+    --max_epochs 1000 \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
-    --num_workers 2 \
-    --optimizer lars \
-    --grad_clip_lars \
-    --eta_lars 0.02 \
+    --optimizer adamw \
     --exclude_bias_n_norm_lars \
     --scheduler warmup_cosine \
-    --lr 0.3 \
+    --lr 0.1 \
     --weight_decay 1e-4 \
-    --batch_size 128 \
-    --brightness 0.4 \
-    --contrast 0.4 \
+    --num_workers 0 \
+    --batch_size 64 \
+    --brightness 0.2 \
+    --contrast 0.2 \
     --saturation 0.2 \
     --hue 0.1 \
-    --gaussian_prob 0.0 0.0 \
-    --solarization_prob 0.0 0.2 \
+    --gaussian_prob 0.0 0.2 \
+    --solarization_prob 0.0 0.0 \
     --crop_size 32 \
     --num_crops_per_aug 1 1 \
     --knn_eval \
-    --name barlow_1 \
-    --project acc-data-ai \
+    --name barlow_cifar10 \
+    --project ssl-lp-whitepaper \
     --entity evrimozmermer \
     --wandb \
     --save_checkpoint \
     --auto_resume \
-    --auto_resumer_max_hours 240 \
+    --auto_resumer_max_hours 120 \
     --method barlow_twins \
     --proj_hidden_dim 512 \
-    --proj_output_dim 64 \
+    --proj_output_dim 32 \
     --scale_loss 0.1

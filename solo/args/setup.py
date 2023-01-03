@@ -45,7 +45,6 @@ except ImportError:
 else:
     _dali_available = True
 
-
 def parse_args_pretrain() -> argparse.Namespace:
     """Parses dataset, augmentation, pytorch lightning, model specific and additional args.
 

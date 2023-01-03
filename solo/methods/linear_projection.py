@@ -53,7 +53,7 @@ class LinearProjection(BaseMethod):
         self.projector = nn.Sequential(
             nn.BatchNorm1d(self.features_dim),
             nn.ReLU(),
-            nn.Linear(self.features_dim, proj_output_dim)
+            nn.Linear(self.features_dim, proj_output_dim),
         )
         
 

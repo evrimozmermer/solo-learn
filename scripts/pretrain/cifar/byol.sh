@@ -1,41 +1,40 @@
-python3 main_pretrain.py \
+python main_pretrain.py \
     --dataset cifar10 \
     --backbone resnet18 \
     --train_data_path ./datasets \
     --val_data_path ./datasets \
-    --max_epochs 1500 \
+    --max_epochs 1000 \
     --devices 0 \
     --accelerator gpu \
     --precision 16 \
-    --optimizer lars \
-    --grad_clip_lars \
-    --eta_lars 0.02 \
+    --optimizer adamw \
     --exclude_bias_n_norm_lars \
     --scheduler warmup_cosine \
-    --lr 1.0 \
+    --lr 0.1 \
     --classifier_lr 0.1 \
     --weight_decay 1e-5 \
-    --batch_size 128 \
-    --num_workers 2 \
-    --brightness 0.4 \
-    --contrast 0.4 \
+    --batch_size 64 \
+    --num_workers 0 \
+    --brightness 0.2 \
+    --contrast 0.2 \
     --saturation 0.2 \
     --hue 0.1 \
-    --gaussian_prob 0.0 0.0 \
-    --solarization_prob 0.0 0.2 \
+    --gaussian_prob 0.0 0.2 \
+    --solarization_prob 0.0 0.0 \
     --crop_size 32 \
     --num_crops_per_aug 1 1 \
     --knn_eval \
-    --name byol-$1 \
-    --project acc-data-ai \
+    --name byol_cifar10 \
+    --project ssl-lp-whitepaper \
     --entity evrimozmermer \
     --wandb \
     --save_checkpoint \
     --auto_resume \
     --method byol \
-    --proj_output_dim 64 \
-    --proj_hidden_dim 512 \
-    --pred_hidden_dim 512 \
+    --proj_output_dim 32 \
+    --proj_hidden_dim 2048 \
+    --pred_hidden_dim 2048 \
     --base_tau_momentum 0.99 \
     --final_tau_momentum 1.0 \
-    --momentum_classifier
+    --momentum_classifier \
+    --auto_resumer_max_hours 120 \
