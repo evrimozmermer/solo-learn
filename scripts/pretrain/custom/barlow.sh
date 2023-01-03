@@ -1,9 +1,10 @@
+# 1.20 it/s
 python main_pretrain.py \
     --dataset custom \
     --backbone swin_tiny \
     --train_data_path ./datasets/universal_image_embeddings/train \
     --val_data_path ./datasets/universal_image_embeddings/eval \
-    --max_epochs 1000 \
+    --max_epochs 100 \
     --devices 0 \
     --sync_batchnorm \
     --num_workers 0 \
@@ -13,7 +14,7 @@ python main_pretrain.py \
     --eta_lars 0.001 \
     --exclude_bias_n_norm_lars \
     --scheduler warmup_cosine \
-    --lr 0.8 \
+    --lr 0.1 \
     --weight_decay 1.5e-6 \
     --batch_size 32 \
     --brightness 0.2 \

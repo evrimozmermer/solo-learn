@@ -1,9 +1,10 @@
+# 1.22 it/s
 python main_pretrain.py \
     --dataset custom \
     --backbone swin_tiny \
     --train_data_path ./datasets/universal_image_embeddings/train \
     --val_data_path ./datasets/universal_image_embeddings/eval \
-    --max_epochs 1000 \
+    --max_epochs 100 \
     --devices 0 \
     --num_workers 0 \
     --accelerator gpu \
@@ -12,7 +13,7 @@ python main_pretrain.py \
     --eta_lars 0.001 \
     --exclude_bias_n_norm_lars \
     --scheduler warmup_cosine \
-    --lr 0.45 \
+    --lr 0.1 \
     --accumulate_grad_batches 16 \
     --classifier_lr 0.2 \
     --weight_decay 1e-4 \
@@ -36,6 +37,6 @@ python main_pretrain.py \
     --proj_hidden_dim 2048 \
     --pred_hidden_dim 2048 \
     --base_tau_momentum 0.99 \
-    --final_tau_momentum 1.0
+    --final_tau_momentum 1.0 \
     --auto_resume \
     --auto_resumer_max_hours 120
