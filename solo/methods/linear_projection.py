@@ -51,9 +51,10 @@ class LinearProjection(BaseMethod):
         """
         # projector
         self.projector = nn.Sequential(
-            nn.BatchNorm1d(self.features_dim),
+            nn.Linear(self.features_dim, proj_hidden_dim),
+            nn.BatchNorm1d(proj_hidden_dim),
             nn.ReLU(),
-            nn.Linear(self.features_dim, proj_output_dim),
+            nn.Linear(proj_hidden_dim, proj_output_dim),
         )
         
 
@@ -101,7 +102,8 @@ class LinearProjection(BaseMethod):
 
         feats1, feats2 = out["feats"]
 
-        z1 = self.projector(feats1)
+        with torch.no_grad():
+            z1 = self.projector(feats1)
         z2 = self.projector(feats2)
 
         # ------- linear projection loss -------

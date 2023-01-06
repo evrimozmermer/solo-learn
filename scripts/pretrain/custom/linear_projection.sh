@@ -9,23 +9,22 @@ python main_pretrain.py \
     --num_workers 0 \
     --accelerator gpu \
     --precision 16 \
-    --optimizer lars \
-    --eta_lars 0.001 \
-    --exclude_bias_n_norm_lars \
+    --optimizer adamw \
     --scheduler warmup_cosine \
-    --lr 0.1 \
+    --min_lr 0.000012 \
+    --lr 0.0001 \
     --weight_decay 1e-4 \
-    --batch_size 32 \
+    --batch_size 128 \
     --brightness 0.2 \
     --contrast 0.2 \
     --saturation 0.2 \
     --hue 0.1 \
-    --gaussian_prob 0.0 0.2 \
+    --gaussian_prob 0.0 0.8 \
     --solarization_prob 0.0 0.0 \
-    --crop_size 224 \
     --num_crops_per_aug 1 1 \
+    --crop_size 224 \
     --knn_eval \
-    --name lp_uie_2 \
+    --name lp_uie_0001_optimized \
     --project ssl-lp-whitepaper \
     --entity evrimozmermer \
     --wandb \
