@@ -34,10 +34,7 @@ python main_pretrain.py \
     --name bt_uie_adamw \
     --project ssl-lp-whitepaper \
     --entity evrimozmermer \
-    --wandb \
     --save_checkpoint \
     --method barlow_twins \
     --proj_hidden_dim 512 \
-    --proj_output_dim 16 \
-    --auto_resume \
-    --auto_resumer_max_hours 120
+    --proj_output_dim 16

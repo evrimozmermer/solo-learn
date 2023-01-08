@@ -27,13 +27,10 @@ python main_pretrain.py \
     --name by_uie_adamw \
     --project ssl-lp-whitepaper \
     --entity evrimozmermer \
-    --wandb \
     --save_checkpoint \
     --method byol \
     --proj_output_dim 16 \
     --proj_hidden_dim 512 \
     --pred_hidden_dim 512 \
     --base_tau_momentum 0.99 \
-    --final_tau_momentum 1.0 \
-    --auto_resume \
-    --auto_resumer_max_hours 120
+    --final_tau_momentum 1.0

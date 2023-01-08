@@ -27,10 +27,7 @@ python main_pretrain.py \
     --name lp_uie_0001_optimized \
     --project ssl-lp-whitepaper \
     --entity evrimozmermer \
-    --wandb \
     --save_checkpoint \
     --method linear_projection \
     --proj_hidden_dim 512 \
-    --proj_output_dim 16 \
-    --auto_resume \
-    --auto_resumer_max_hours 240
+    --proj_output_dim 16
