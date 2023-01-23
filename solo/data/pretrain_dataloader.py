@@ -451,8 +451,10 @@ class CustomTransform(BaseTransform):
                 transforms.RandomApply([Solarization()], p=solarization_prob),
                 transforms.RandomApply([Equalization()], p=equalization_prob),
                 transforms.RandomHorizontalFlip(p=horizontal_flip_prob),
+                transforms.Resize((int(crop_size*1.1), int(crop_size*1.1))),
+                transforms.CenterCrop((crop_size, crop_size)),
                 transforms.ToTensor(),
-                transforms.Normalize(mean=mean, std=std),
+                transforms.Normalize(mean=mean, std=std)
             ]
         )
 
