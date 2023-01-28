@@ -1,6 +1,7 @@
+# 3sfe2awc
 python main_pretrain.py \
     --dataset cifar10 \
-    --backbone swin_tiny \
+    --backbone resnet18 \
     --train_data_path ./datasets \
     --val_data_path ./datasets \
     --max_epochs 1000 \
@@ -10,25 +11,24 @@ python main_pretrain.py \
     --precision 16 \
     --optimizer adamw \
     --scheduler warmup_cosine \
-    --lr 0.01 \
+    --min_lr 0.000012 \
+    --lr 0.0001 \
     --weight_decay 1e-4 \
-    --batch_size 32 \
+    --batch_size 256 \
     --brightness 0.2 \
     --contrast 0.2 \
     --saturation 0.2 \
     --hue 0.1 \
-    --gaussian_prob 0.0 0.2 \
+    --gaussian_prob 0.0 0.8 \
     --solarization_prob 0.0 0.0 \
-    --crop_size 32 \
     --num_crops_per_aug 1 1 \
+    --crop_size 32 \
     --knn_eval \
-    --name linear_projection_cifar10 \
+    --wandb \
+    --name lp_cifar10 \
     --project ssl-lp-whitepaper \
     --entity evrimozmermer \
-    --wandb \
     --save_checkpoint \
     --method linear_projection \
     --proj_hidden_dim 2048 \
-    --proj_output_dim 16 \
-    --auto_resume \
-    --auto_resumer_max_hours 120
+    --proj_output_dim 64

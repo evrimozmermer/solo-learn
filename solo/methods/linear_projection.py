@@ -56,6 +56,7 @@ class LinearProjection(BaseMethod):
             nn.ReLU(),
             nn.Linear(proj_hidden_dim, proj_output_dim),
         )
+        print(f"BACKBONE ARGS: {self.backbone_args}")
         
 
     @staticmethod
