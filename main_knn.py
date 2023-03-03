@@ -135,9 +135,8 @@ def main():
         args.dataset,
         T_train=T,
         T_val=T,
-        data_dir=args.data_dir,
-        train_dir=args.train_dir,
-        val_dir=args.val_dir,
+        train_data_path=args.train_data_path,
+        val_data_path=args.val_data_path,
         download=True,
     )
     train_loader, val_loader = prepare_dataloaders(

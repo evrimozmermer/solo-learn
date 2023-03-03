@@ -1,0 +1,11 @@
+python main_knn.py \
+    --dataset cifar10 \
+    --train_data_path ./datasets \
+    --val_data_path ./datasets \
+    --batch_size 16 \
+    --num_workers 0 \
+    --pretrained_checkpoint_dir ./trained_models/linear_projection/1blzxpjy/ \
+    --k 1 2 5 10 20 50 100 200 \
+    --temperature 0.01 0.02 0.05 0.07 0.1 0.2 0.5 1 \
+    --feature_type backbone \
+    --distance_function euclidean

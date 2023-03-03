@@ -203,9 +203,9 @@ def parse_args_umap() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
 
     # add knn args
-    parser.add_argument("--pretrained_checkpoint_dir", type=str)
+    parser.add_argument("--pretrained_checkpoint_dir", default=".\\trained_models\\linear_projection\\3sfe2awc\\lp_cifar10-3sfe2awc-ep=999.ckpt", type=str)
     parser.add_argument("--batch_size", type=int, default=16)
-    parser.add_argument("--num_workers", type=int, default=10)
+    parser.add_argument("--num_workers", type=int, default=0)
 
     # add shared arguments
     dataset_args(parser)

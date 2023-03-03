@@ -50,9 +50,8 @@ def main():
     # prepare data
     train_loader, val_loader = prepare_data(
         args.dataset,
-        data_dir=args.data_dir,
-        train_dir=args.train_dir,
-        val_dir=args.val_dir,
+        train_data_path=args.train_data_path,
+        val_data_path=args.val_data_path,
         batch_size=args.batch_size,
         num_workers=args.num_workers,
     )
@@ -63,8 +62,8 @@ def main():
     device = "cuda:0"
     model = model.to(device)
 
-    umap.plot(device, model, train_loader, "im100_train_umap.pdf")
-    umap.plot(device, model, val_loader, "im100_val_umap.pdf")
+    umap.plot(device, model, train_loader, f'{args.pretrained_checkpoint_dir.split("\\")[-1]}_train.pdf')
+    umap.plot(device, model, val_loader, f'{args.pretrained_checkpoint_dir.split("\\")[-1]}_eval.jpg')
 
 
 if __name__ == "__main__":

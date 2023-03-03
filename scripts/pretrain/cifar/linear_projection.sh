@@ -1,4 +1,4 @@
-# 3sfe2awc
+# 1blzxpjy
 python main_pretrain.py \
     --dataset cifar10 \
     --backbone resnet18 \
@@ -11,8 +11,8 @@ python main_pretrain.py \
     --precision 16 \
     --optimizer adamw \
     --scheduler warmup_cosine \
-    --min_lr 0.000012 \
-    --lr 0.0001 \
+    --min_lr 0.00008 \
+    --lr 0.001 \
     --weight_decay 1e-4 \
     --batch_size 256 \
     --brightness 0.2 \
@@ -25,10 +25,11 @@ python main_pretrain.py \
     --crop_size 32 \
     --knn_eval \
     --wandb \
-    --name lp_cifar10 \
+    --name lp_cifar10_1 \
     --project ssl-lp-whitepaper \
     --entity evrimozmermer \
     --save_checkpoint \
     --method linear_projection \
     --proj_hidden_dim 2048 \
-    --proj_output_dim 64
+    --proj_output_dim 64 \
+    --auto_resume
