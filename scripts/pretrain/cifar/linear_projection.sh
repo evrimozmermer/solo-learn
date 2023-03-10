@@ -29,7 +29,7 @@ python main_pretrain.py \
     --project ssl-lp-whitepaper \
     --entity evrimozmermer \
     --save_checkpoint \
+    --auto_resume \
     --method linear_projection \
     --proj_hidden_dim 2048 \
-    --proj_output_dim 64 \
-    --auto_resume
+    --proj_output_dim 64 
