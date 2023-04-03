@@ -285,7 +285,7 @@ We report the training efficiency of some methods using a ResNet18 with and with
 ---
 
 ## Citation
-<a name="bib"></a>If you use solo-learn, please cite our [paper](https://jmlr.org/papers/v23/21-1155.html):
+<a name="bib"></a>If you use solo-learn, please cite Victor'S solo-learn library [paper](https://jmlr.org/papers/v23/21-1155.html):
 ```
 @article{JMLR:v23:21-1155,
   author  = {Victor Guilherme Turrisi da Costa and Enrico Fini and Moin Nabi and Nicu Sebe and Elisa Ricci},
